@@ -48,7 +48,7 @@ int main() {
     printf("Current time: %s\n", buf2);
 
     long long received_time;
-    received_time = strtoll(buf, NULL, 0);
+    received_time = atoll(buf);
     ctime(&received_time);
 
     printf("Received message from broadcaster %s\n", buf);
