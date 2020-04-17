@@ -20,7 +20,7 @@ long long getCurrentTimestamp() {
     return timestamp_usec;
 }
 
-int main() {
+int main(int argc, char** argv) {
     int ssock;
     int clen;
     struct sockaddr_in client_addr, server_addr;
@@ -58,7 +58,7 @@ int main() {
     printf("DIFF : %lld\n", diff);
 
     char result[MAXBUF];
-    sprintf(result, "%lld, %lld, %lld\n", received_time, now, diff);
+    sprintf(result, "%s, %lld, %lld, %lld\n", argv[1], received_time, now, diff);
     strcpy(buf, result);
 
     sendto(ssock, (void *) result, MAXBUF, 0, (struct sockaddr *) &client_addr, sizeof(client_addr));

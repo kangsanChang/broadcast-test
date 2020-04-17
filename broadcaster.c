@@ -48,11 +48,10 @@ int main() {
     clen = sizeof(client_addr);
 
     while(1) {
-
+        FILE *fp = fopen("./result.csv", "a");
         recvfrom(ssock, (void *) buf, MAXBUF, 0, (struct sockaddr *) &client_addr, &clen);
         printf("Receive message : %s\n", buf);
-
+        fprintf(fp, buf);
+        fclose(fp);
     }
-    close(ssock);
-    return 0;
 }
