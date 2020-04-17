@@ -3,6 +3,7 @@
 #include <signal.h>
 #include <time.h>
 #include <zconf.h>
+#include <stdlib.h>
 
 #define MAXBUF 256
 
